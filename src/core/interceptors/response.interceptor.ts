@@ -1,7 +1,6 @@
 import {
   CallHandler,
   ExecutionContext,
-  HttpCode,
   HttpStatus,
   NestInterceptor,
 } from '@nestjs/common';
