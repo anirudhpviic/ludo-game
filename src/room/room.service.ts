@@ -17,7 +17,7 @@ export class RoomService {
     async createRoom(inputs: Record<string, any>, user: Record<string, any>) {
         const { maxPlayers } = await this.validator.validateObject(inputs, CreateRoomValidator);
         const roomId = await this.createRoomId();
-        const room = await this.roomModel.create({ roomId, maxPlayers, hostId: user.userId, hostUsername: user.username });
+        const room = await this.roomModel.create({ roomId, maxPlayers, hostId: user.userId, hostUsername: user.username, players: [{ userId: user.userId, username: user.username }] });
         return room;
     }
 
